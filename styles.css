@@ -10,13 +10,15 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+/* Ensure the container doesn't cause overflow */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%; /* Ensure container takes full width on mobile */
 }
 
 /* Header */
@@ -55,6 +57,8 @@ nav ul li a {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
+    padding: 10px; /* Add padding for better tap area */
+    display: inline-block; /* Ensure padding applies correctly */
 }
 
 nav ul li a:hover {
@@ -102,13 +106,13 @@ nav ul li a:hover {
     opacity: 0;
     transform: translateY(20px);
     min-width: 200px;
-    min-height: 44px;
+    min-height: 48px; /* Increased for better tap target */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     touch-action: manipulation;
-    text-decoration: none; /* Ensure anchor tags don't have underlines */
+    text-decoration: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -164,9 +168,9 @@ nav ul li a:hover {
     transition: transform 0.3s ease;
     opacity: 0;
     transform: translateY(50px);
-    text-decoration: none; /* Remove underline from anchor */
-    color: inherit; /* Inherit text color */
-    display: block; /* Ensure the entire card is clickable */
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .project-card:hover {
@@ -305,6 +309,7 @@ nav ul li a:hover {
     border-radius: 5px;
     color: #e0e0e0;
     font-size: 1rem;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 .form-group textarea {
@@ -340,13 +345,20 @@ footer p {
 .social-links a {
     color: #e0e0e0;
     transition: color 0.3s ease;
+    padding: 10px; /* Increase tap area */
+    display: inline-block;
 }
 
 .social-links a:hover {
     color: #FF6F61;
 }
 
-/* Responsive Design */
+.social-links svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Updated Responsive Design for Mobile */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 4rem;
@@ -356,13 +368,25 @@ footer p {
         font-size: 1.2rem;
     }
 
+    /* Improve Navigation for Mobile */
     nav ul {
         flex-direction: column;
         align-items: center;
+        gap: 15px; /* Add spacing between nav items */
+        width: 100%; /* Ensure nav takes full width */
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin-left: 0; /* Remove horizontal margin */
+        margin: 5px 0; /* Add vertical margin */
+        width: 100%; /* Ensure full width for tap area */
+        text-align: center;
+    }
+
+    nav ul li a {
+        padding: 15px; /* Increase tap area */
+        font-size: 1.1rem; /* Slightly larger font for readability */
+        display: block; /* Ensure full width is tappable */
     }
 
     .section-title {
@@ -373,7 +397,22 @@ footer p {
         padding: 0.8rem 1.5rem;
         font-size: clamp(0.9rem, 1.8vw, 1rem);
         min-width: 180px;
-        min-height: 44px;
+        min-height: 48px;
+    }
+
+    /* Prevent Overflow in Sections */
+    .project-grid,
+    .pricing-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+
+    .project-card,
+    .pricing-card,
+    .testimonial-card {
+        width: 100%; /* Ensure cards don't overflow */
+        max-width: 100%; /* Prevent overflow */
     }
 
     .pricing-card {
@@ -382,6 +421,22 @@ footer p {
 
     .pricing-card .price {
         font-size: 2rem;
+    }
+
+    /* Adjust Contact Form for Mobile */
+    #contact-form {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .form-group label {
+        font-size: 1rem;
     }
 }
 
@@ -402,5 +457,20 @@ footer p {
         padding: 0.6rem 1.2rem;
         font-size: clamp(0.8rem, 1.5vw, 0.9rem);
         min-width: 160px;
+        min-height: 48px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .social-links a {
+        padding: 8px;
+    }
+
+    .social-links svg {
+        width: 20px;
+        height: 20px;
     }
 }

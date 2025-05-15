@@ -89,7 +89,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     const email = document.getElementById("email").value;
     const message = document.getElementById("message").value;
 
-    // Simulate form submission (you can replace this with an actual API call)
+    // Simulate form submission
     alert(`Thank you, ${name}! Your message has been sent.\nEmail: ${email}\nMessage: ${message}`);
     
     // Reset form
@@ -98,8 +98,15 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 // Handle Pricing Plan Selection
 document.querySelectorAll(".select-plan").forEach(button => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent default touch behavior
         const plan = this.getAttribute("data-plan");
-        alert(`You have selected the ${plan} plan! We'll get in touch to finalize your subscription.`);
+        this.textContent = "Processing...";
+        this.disabled = true;
+        setTimeout(() => {
+            alert(`You have selected the ${plan} plan! We'll get in touch to finalize your subscription.`);
+            this.textContent = "Select Plan";
+            this.disabled = false;
+        }, 2000); // Simulate a 2-second processing delay
     });
 });

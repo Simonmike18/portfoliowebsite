@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of John Doe, a skilled web developer and UI/UX designer. Explore my projects, pricing, and client testimonials.">
+    <meta name="description" content="Portfolio of simon michael, a skilled web developer and UI/UX designer. Explore my projects, pricing, and client testimonials.">
     <meta name="keywords" content="web developer, portfolio, UI/UX designer, dark theme">
-    <meta name="author" content="mike.Dev">
-    <title>John Doe - Web Developer & web3 strategist</title>
+    <meta name="author" content="Mike.Dev">
+    <title>Mike.Dev- Web Developer & web3 strategist</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,13 +14,14 @@
     <!-- Header -->
     <header id="header">
         <div class="container">
-            <h1 class="logo">mike.Dev</h1>
+            <h1 class="logo">Mike.Dev</h1>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -29,9 +30,10 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h1 class="hero-title">simon michael</h1>
+            <h1 class="hero-title">Simon Michael</h1>
             <p class="hero-subtitle">Web Developer & web3 strategist</p>
-            <button class="cta-button">Get in Touch</button>
+            <p class="hero-subtitle">Crafting innovative, user focused websites with cutting edge designs and seamless functionality. Transforming ideas into digital experiences that engage and inspire. </p>
+            <a href="#contact" class="cta-button" id="get-in-touch" aria-label="Contact John Doe">Get in Touch</a>
         </div>
     </section>
 
@@ -40,20 +42,20 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
-                <div class="project-card">
+                <a href="https://example.com/ecommerce" class="project-card" target="_blank" aria-label="View E-Commerce Platform">
                     <img src="images/project1.jpg" alt="E-Commerce Platform">
                     <div class="project-info">
                         <h3>E-Commerce Platform</h3>
                         <p>A fully responsive e-commerce site built with modern technologies.</p>
                     </div>
-                </div>
-                <div class="project-card">
+                </a>
+                <a href="https://example.com/dashboard" class="project-card" target="_blank" aria-label="View Social Media Dashboard">
                     <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Social Media Dashboard">
                     <div class="project-info">
                         <h3>Social Media Dashboard</h3>
                         <p>A dashboard for managing social media campaigns.</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -70,7 +72,7 @@
                         <li>1 Project</li>
                         <li>Basic Support</li>
                     </ul>
-                    <button class="cta-button">Select Plan</button>
+                    <button class="cta-button select-plan" data-plan="Basic" aria-label="Select Basic Plan">Select Plan</button>
                 </div>
                 <div class="pricing-card">
                     <h3>Pro</h3>
@@ -79,7 +81,7 @@
                         <li>3 Projects</li>
                         <li>Priority Support</li>
                     </ul>
-                    <button class="cta-button">Select Plan</button>
+                    <button class="cta-button select-plan" data-plan="Pro" aria-label="Select Pro Plan">Select Plan</button>
                 </div>
                 <div class="pricing-card">
                     <h3>Enterprise</h3>
@@ -88,7 +90,7 @@
                         <li>Unlimited Projects</li>
                         <li>24/7 Support</li>
                     </ul>
-                    <button class="cta-button">Select Plan</button>
+                    <button class="cta-button select-plan" data-plan="Enterprise" aria-label="Select Enterprise Plan">Select Plan</button>
                 </div>
             </div>
         </div>
@@ -113,10 +115,44 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                </div>
+                <button type="submit" class="cta-button" aria-label="Send Message">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 mike.DEV. All rights reserved.</p>
+            <p>© 2025 Mike.Dev. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://t.co/s4iRFgNeGh" target="_blank" aria-label="Follow me on Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                    </svg>
+                </a>
+                <a href="https://github.com/simonmike18" target="_blank" aria-label="View my GitHub profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 2.3 1.5 2.3 1.5 0 0 0 3.4 0c1.3-.5 2.3-1.5 2.3-1.5.6 1.6.2 2.8.1 3.1.7.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.7 1 .7 2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 0z"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </footer>
 

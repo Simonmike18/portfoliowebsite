@@ -3,163 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of [Your Name], a professional web developer and Web3 developer crafting innovative, responsive, and decentralized solutions.">
-    <meta name="keywords" content="web developer, Web3 developer, portfolio, blockchain, responsive design">
-    <title>My Portfolio</title>
+    <meta name="description" content="Portfolio of John Doe, a skilled web developer and UI/UX designer. Explore my projects, pricing, and client testimonials.">
+    <meta name="keywords" content="web developer, portfolio, UI/UX designer, dark theme">
+    <meta name="author" content="mike.Dev">
+    <title>John Doe - Web Developer & web3 strategist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">mickey.dev</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#web3">Web3</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <h1 class="logo">mike.Dev</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section id="home">
-        <div class="hero">
-            <h1>Hi, I'm Simon Michael</h1>
-            <p>A Web & Web3 Developer | Building the Future of the Internet and Web 3.</p>
-            <a href="#portfolio" class="cta-button">Explore My Work</a>
-        </div>
-        <div class="particles"></div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <img src="images/your-photo2.jpg" alt="Your Photo" class="profile-img">
-            <div class="about-text">
-                <p>
-                    I'm a passionate web developer and Web3 enthusiast with over 3 years of experience crafting responsive, user-centric websites and decentralized applications (dApps). 
-                    My expertise spans modern web technologies and blockchain ecosystems, delivering innovative solutions that drive business success.
-                </p>
-                <p>Let’s build something extraordinary together!</p>
-                <a href="#contact" class="cta-button secondary">Get in Touch</a>
-            </div>
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="hero-title">simon michael</h1>
+            <p class="hero-subtitle">Web Developer & web3 strategist</p>
+            <button class="cta-button">Get in Touch</button>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>My Skills</h2>
-        <div class="skills-grid">
-            <div class="skill" data-skill="HTML5">HTML5</div>
-            <div class="skill" data-skill="CSS3">CSS3</div>
-            <div class="skill" data-skill="JavaScript">JavaScript</div>
-            <div class="skill" data-skill="React">React</div>
-            <div class="skill" data-skill="Node.js">Node.js</div>
-            <div class="skill" data-skill="Solidity">Solidity</div>
-            <div class="skill" data-skill="Web3.js">Web3.js</div>
-            <div class="skill" data-skill="Ethereum">Ethereum</div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2>My Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="images/project1.jpg" alt="Project 1">
-                <div class="portfolio-overlay">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A responsive e-commerce site built with React, Node.js, and Stripe.</p>
-                    <a href="#" class="project-link">View Project</a>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="images/project1.jpg" alt="E-Commerce Platform">
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A fully responsive e-commerce site built with modern technologies.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/Project2.jpg" alt="Project 2">
-                <div class="portfolio-overlay">
-                    <h3>NFT Marketplace</h3>
-                    <p>A Web3 dApp for trading NFTs using Solidity and Web3.js.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <img src="images/project3.jpg" alt="Project 3">
-                <div class="portfolio-overlay">
-                    <h3>Portfolio Website</h3>
-                    <p>A sleek portfolio for a client using HTML, CSS, and JavaScript.</p>
-                    <a href="#" class="project-link">View Project</a>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Social Media Dashboard">
+                    <div class="project-info">
+                        <h3>Social Media Dashboard</h3>
+                        <p>A dashboard for managing social media campaigns.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Web3 Expertise Section -->
-    <section id="web3">
-        <h2>Web3 Expertise</h2>
-        <p>Specializing in decentralized technologies to empower the next generation of the internet.</p>
-        <div class="web3-grid">
-            <div class="web3-item">
-                <h3>Smart Contracts</h3>
-                <p>Developing secure and efficient smart contracts using Solidity for Ethereum and other blockchains.</p>
-            </div>
-            <div class="web3-item">
-                <h3>dApps</h3>
-                <p>Building decentralized applications with Web3.js, IPFS, and modern front-end frameworks.</p>
-            </div>
-            <div class="web3-item">
-                <h3>Blockchain Integration</h3>
-                <p>Integrating blockchain solutions into existing web platforms for enhanced security and transparency.</p>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <p class="price">$2990</p>
+                    <ul>
+                        <li>1 Project</li>
+                        <li>Basic Support</li>
+                    </ul>
+                    <button class="cta-button">Select Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Pro</h3>
+                    <p class="price">$4990</p>
+                    <ul>
+                        <li>3 Projects</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <button class="cta-button">Select Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="price">$9990</p>
+                    <ul>
+                        <li>Unlimited Projects</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                    <button class="cta-button">Select Plan</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2>What Clients Say</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial">
-                <p>"Michael delivered a stunning website that exceeded our expectations. Their Web3 expertise is unmatched!"</p>
-                <h4>John Doe, CEO of TechCorp</h4>
-            </div>
-            <div class="testimonial">
-                <p>"The NFT marketplace built by mickey was a game-changer for our business. Highly recommended!"</p>
-                <h4>Jane Smith, Founder of CryptoArt</h4>
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Trusted by Clients</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"John delivered an amazing website for my business!"</p>
+                    <h3>Jane Smith</h3>
+                    <span>CEO, TechCorp</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The best developer I’ve worked with. Highly recommend!"</p>
+                    <h3>Mike Johnson</h3>
+                    <span>Founder, StartupX</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Ready to bring your vision to life? Let’s connect!</p>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="cta-button">Send Message</button>
-        </form>
-        <div class="social-links">
-            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://github.com/simonmike18" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://x.com/lifeofmikes?s=21&t=-FhhJ7dHcGbyZGG1B2kBaA" target="_blank" rel="noopener">Twitter/X</a>
-        </div>
-
     <!-- Footer -->
     <footer>
-        <p>© 2025 mickey. All Rights Reserved.</p>
-        <p>Built with 💻 by a Web3 Pioneer</p>
+        <div class="container">
+            <p>© 2025 mike.DEV. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

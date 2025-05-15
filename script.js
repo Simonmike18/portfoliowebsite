@@ -1,26 +1,71 @@
-// Burger Menu Toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
+// Initialize GSAP and ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-    burger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        burger.classList.toggle('active');
+// Animate Hero Section
+gsap.to(".hero-title", {
+    opacity: 1,
+    scale: 1,
+    duration: 1,
+    ease: "power3.out"
+});
+
+gsap.to(".hero-subtitle", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.5,
+    ease: "power3.out"
+});
+
+gsap.to(".cta-button", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 1,
+    ease: "power3.out"
+});
+
+// Animate Project Cards
+gsap.utils.toArray(".project-card").forEach((card, index) => {
+    gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: index * 0.2,
+        scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
     });
+});
 
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            burger.classList.remove('active');
-        });
+// Animate Pricing Cards
+gsap.utils.toArray(".pricing-card").forEach((card, index) => {
+    gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: index * 0.2,
+        scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
     });
+});
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navLinks.contains(e.target) && !burger.contains(e.target) && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            burger.classList.remove('active');
+// Animate Testimonial Cards
+gsap.utils.toArray(".testimonial-card").forEach((card, index) => {
+    gsap.to(card, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        delay: index * 0.3,
+        scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none"
         }
     });
 });

@@ -30,6 +30,21 @@ gsap.to(".cta-button", {
     ease: "power3.out"
 });
 
+// Animate Expertise Cards
+gsap.utils.toArray(".expertise-card").forEach((card, index) => {
+    gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: index * 0.2,
+        scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+    });
+});
+
 // Animate Project Cards
 gsap.utils.toArray(".project-card").forEach((card, index) => {
     gsap.to(card, {

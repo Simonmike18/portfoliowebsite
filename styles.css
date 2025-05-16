@@ -205,6 +205,59 @@ nav ul.nav-menu li a:hover {
     color: #e0e0e0;
 }
 
+/* Expertise Section */
+.expertise {
+    padding: 80px 15px;
+    background-color: #121212;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.expertise-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 25px;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .expertise-card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+}
+
+.expertise-card h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.expertise-card ul {
+    list-style: none;
+}
+
+.expertise-card ul li {
+    color: #a0a0a0;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.expertise-card ul li::before {
+    content: "•";
+    color: #FF6F61;
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+}
+
 /* Projects Section */
 .projects {
     padding: 80px 15px;
@@ -501,6 +554,7 @@ footer p {
         min-height: 48px;
     }
 
+    .expertise-grid,
     .project-grid,
     .pricing-grid,
     .testimonial-grid {
@@ -508,6 +562,7 @@ footer p {
         gap: 20px;
     }
 
+    .expertise-card,
     .project-card,
     .pricing-card,
     .testimonial-card {

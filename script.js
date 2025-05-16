@@ -108,16 +108,53 @@ document.querySelectorAll(".nav-menu a").forEach(link => {
 
 // Handle Contact Form Submission
 document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    e.preventDefault(); // Prevent default form submission
 
-    // Simulate form submission
-    alert(`Thank you, ${name}! Your message has been sent.\nEmail: ${email}\nMessage: ${message}`);
+    const formMessage = document.getElementById("form-message");
+    const form = this;
 
-    // Reset form
-    this.reset();
+    // Show a "Sending..." message
+    formMessage.style.display = "block";
+    formMessage.textContent = "Sending your message...";
+
+    // Submit the form to Formspree using fetch
+    fetch("https://formspree.io/f/xrbqjpqe", {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // On successful submission
+            form.reset(); // Reset the form
+            formMessage.style.display = "block";
+            formMessage.textContent = "Message Sent Successfully!";
+            
+            // Fade out the success message after 3 seconds
+            setTimeout(() => {
+                formMessage.style.transition = "opacity 1s ease";
+                formMessage.style.opacity = "0";
+                setTimeout(() => {
+                    formMessage.style.display = "none";
+                    formMessage.style.opacity = "1"; // Reset for next submission
+                    
+                    // Redirect to the Contact section
+                    window.location.href = "https://simonmike18.github.io/portfolio/";
+                }, 1000); // Match the fade-out transition duration
+            }, 3000); // Show success message for 3 seconds
+        } else {
+            // On error
+            formMessage.style.display = "block";
+            formMessage.textContent = "Error: Failed to send message. Please try again.";
+        }
+    })
+    .catch(error => {
+        console.error("Form submission error:", error);
+        formMessage.style.display = "block";
+        formMessage.textContent = "Error: Failed to send message. Please try again.";
+    });
 });
 
 // Handle Pricing Plan Selection

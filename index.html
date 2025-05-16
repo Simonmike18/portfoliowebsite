@@ -124,27 +124,30 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required aria-required="true">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required aria-required="true">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-                </div>
-                <button type="submit" class="cta-button" aria-label="Send Message">Send Message</button>
-            </form>
-        </div>
-    </section>
+  <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <div id="form-message" role="alert" style="display: none; color: #FF6F61; text-align: center; margin-bottom: 20px;"></div>
+        <form id="contact-form" action="https://formspree.io/f/xrbqjpqe" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+            </div>
+            <!-- Hidden input for redirect (optional, can be removed since we're handling redirect in JS) -->
+            <input type="hidden" name="_next" value="https://simonmike18.github.io/portfolio/">
+            <button type="submit" class="cta-button" aria-label="Send Message">Send Message</button>
+        </form>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>

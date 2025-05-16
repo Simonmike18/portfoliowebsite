@@ -5,20 +5,26 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%; /* Prevent text scaling issues on iOS */
+}
+
 body {
     font-family: "Poppins", sans-serif;
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
-/* Ensure the container doesn't cause overflow */
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    width: 100%; /* Ensure container takes full width on mobile */
+    padding: 0 15px;
+    width: 100%;
 }
 
 /* Header */
@@ -28,7 +34,7 @@ body {
     background-color: #121212;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 #header .container {
@@ -38,45 +44,96 @@ body {
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: #FF6F61;
 }
 
-nav ul {
+/* Navigation Toggle Button (Hamburger Icon) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.nav-toggle .hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #e0e0e0;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #e0e0e0;
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle .hamburger::before {
+    top: -8px;
+}
+
+.nav-toggle .hamburger::after {
+    top: 8px;
+}
+
+.nav-toggle.active .hamburger {
+    background-color: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .hamburger::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navigation Menu */
+nav ul.nav-menu {
     display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li {
-    margin-left: 30px;
+nav ul.nav-menu li {
+    margin-left: 20px;
 }
 
-nav ul li a {
+nav ul.nav-menu li a {
     color: #e0e0e0;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
-    padding: 10px; /* Add padding for better tap area */
-    display: inline-block; /* Ensure padding applies correctly */
+    padding: 10px 15px;
+    display: inline-block;
 }
 
-nav ul li a:hover {
+nav ul.nav-menu li a:hover {
     color: #FF6F61;
 }
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - 60px); /* Adjust for header height */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: 40px 15px;
 }
 
 .hero-title {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 800;
     color: #FF6F61;
     margin-bottom: 20px;
@@ -85,9 +142,9 @@ nav ul li a:hover {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #e0e0e0;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     opacity: 0;
     transform: translateY(20px);
 }
@@ -96,17 +153,17 @@ nav ul li a:hover {
 .cta-button {
     background-color: #FF6F61;
     color: #121212;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 5px;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
-    min-width: 200px;
-    min-height: 48px; /* Increased for better tap target */
+    min-width: 180px;
+    min-height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -117,7 +174,6 @@ nav ul li a:hover {
 
 @media (hover: hover) and (pointer: fine) {
     .cta-button:hover {
-        transform: scale(1.1);
         background-color: #e65b50;
         box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3);
     }
@@ -126,7 +182,6 @@ nav ul li a:hover {
 @media (hover: none) {
     .cta-button:active {
         background-color: #e65b50;
-        transform: scale(0.95);
         box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3);
     }
 }
@@ -143,96 +198,103 @@ nav ul li a:hover {
 
 /* Section Titles */
 .section-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     color: #e0e0e0;
 }
 
 /* Projects Section */
 .projects {
-    padding: 100px 20px;
+    padding: 80px 15px;
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .project-card {
     background-color: #1e1e1e;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s ease;
     opacity: 0;
     transform: translateY(50px);
     text-decoration: none;
     color: inherit;
     display: block;
+    position: relative;
 }
 
-.project-card:hover {
-    transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
 }
 
 .project-card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
+    display: block;
 }
 
 .project-info {
-    padding: 20px;
+    padding: 15px;
 }
 
 .project-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .project-info p {
     color: #a0a0a0;
+    font-size: 0.9rem;
 }
 
 /* Pricing Section */
 .pricing {
-    padding: 100px 20px;
+    padding: 80px 15px;
 }
 
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 25px;
 }
 
 .pricing-card {
     background-color: #1e1e1e;
     border-radius: 10px;
-    padding: 30px;
+    padding: 25px;
     text-align: center;
-    transition: transform 0.3s ease;
     opacity: 0;
     transform: translateY(50px);
 }
 
-.pricing-card:hover {
-    transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+    .pricing-card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
 }
 
 .pricing-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .pricing-card .price {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #FF6F61;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .pricing-card ul {
@@ -242,24 +304,25 @@ nav ul li a:hover {
 
 .pricing-card ul li {
     color: #a0a0a0;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
 }
 
 /* Testimonials Section */
 .testimonials {
-    padding: 100px 20px;
+    padding: 80px 15px;
 }
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .testimonial-card {
     background-color: #1e1e1e;
     border-radius: 10px;
-    padding: 30px;
+    padding: 25px;
     opacity: 0;
     transform: translateX(50px);
 }
@@ -267,53 +330,56 @@ nav ul li a:hover {
 .testimonial-card p {
     font-style: italic;
     color: #a0a0a0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
 .testimonial-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 
 .testimonial-card span {
     color: #a0a0a0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* Contact Section */
 .contact {
-    padding: 100px 20px;
+    padding: 80px 15px;
 }
 
 #contact-form {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 5px;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     background-color: #2a2a2a;
     border: 1px solid #444;
     border-radius: 5px;
     color: #e0e0e0;
-    font-size: 1rem;
-    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    -webkit-appearance: none;
 }
 
 .form-group textarea {
     resize: vertical;
+    min-height: 100px;
 }
 
 .form-group input:focus,
@@ -331,7 +397,7 @@ footer {
 }
 
 footer p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #a0a0a0;
 }
 
@@ -339,13 +405,13 @@ footer p {
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .social-links a {
     color: #e0e0e0;
     transition: color 0.3s ease;
-    padding: 10px; /* Increase tap area */
+    padding: 12px;
     display: inline-block;
 }
 
@@ -358,61 +424,99 @@ footer p {
     height: 24px;
 }
 
-/* Updated Responsive Design for Mobile */
+/* Back-to-Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FF6F61;
+    color: #121212;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: #e65b50;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 4rem;
+    /* Navigation for Mobile */
+    .nav-toggle {
+        display: block;
     }
 
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    /* Improve Navigation for Mobile */
-    nav ul {
+    nav ul.nav-menu {
+        display: none;
         flex-direction: column;
-        align-items: center;
-        gap: 15px; /* Add spacing between nav items */
-        width: 100%; /* Ensure nav takes full width */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1e1e1e;
+        padding: 15px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        z-index: 99;
     }
 
-    nav ul li {
-        margin-left: 0; /* Remove horizontal margin */
-        margin: 5px 0; /* Add vertical margin */
-        width: 100%; /* Ensure full width for tap area */
+    nav ul.nav-menu.active {
+        display: flex;
+    }
+
+    nav ul.nav-menu li {
+        margin: 10px 0;
         text-align: center;
     }
 
-    nav ul li a {
-        padding: 15px; /* Increase tap area */
-        font-size: 1.1rem; /* Slightly larger font for readability */
-        display: block; /* Ensure full width is tappable */
+    nav ul.nav-menu li a {
+        padding: 15px;
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
     .section-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .cta-button {
-        padding: 0.8rem 1.5rem;
-        font-size: clamp(0.9rem, 1.8vw, 1rem);
-        min-width: 180px;
+        padding: 0.7rem 1.3rem;
+        font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        min-width: 160px;
         min-height: 48px;
     }
 
-    /* Prevent Overflow in Sections */
     .project-grid,
     .pricing-grid,
     .testimonial-grid {
-        grid-template-columns: 1fr; /* Single column on mobile */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .project-card,
     .pricing-card,
     .testimonial-card {
-        width: 100%; /* Ensure cards don't overflow */
-        max-width: 100%; /* Prevent overflow */
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .project-card img {
+        height: 160px;
     }
 
     .pricing-card {
@@ -420,10 +524,9 @@ footer p {
     }
 
     .pricing-card .price {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
-    /* Adjust Contact Form for Mobile */
     #contact-form {
         max-width: 100%;
         padding: 0 10px;
@@ -436,37 +539,43 @@ footer p {
     }
 
     .form-group label {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+
+    #back-to-top {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .cta-button {
         padding: 0.6rem 1.2rem;
         font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-        min-width: 160px;
-        min-height: 48px;
+        min-width: 140px;
+        min-height: 44px;
     }
 
-    nav ul li a {
+    nav ul.nav-menu li a {
         font-size: 1rem;
         padding: 12px;
     }
 
     .social-links a {
-        padding: 8px;
+        padding: 10px;
     }
 
     .social-links svg {

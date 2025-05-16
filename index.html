@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of simon michael, a skilled web developer and UI/UX designer. Explore my projects, pricing, and client testimonials.">
-    <meta name="keywords" content="web developer, portfolio, UI/UX designer, dark theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Portfolio of Simon Michael, a skilled web developer and UI/UX designer. Explore my projects, pricing, and client testimonials.">
+    <meta name="keywords" content="web developer, portfolio, UI/UX designer, web3 strategist, dark theme">
     <meta name="author" content="Mike.Dev">
-    <title>Mike.Dev- Web Developer & web3 strategist</title>
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Mike.Dev - Web Developer & Web3 Strategist">
+    <meta property="og:description" content="Portfolio of Simon Michael, a skilled web developer and UI/UX designer. Explore my projects, pricing, and client testimonials.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/portfolio">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+    <title>Mike.Dev - Web Developer & Web3 Strategist</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,8 +21,11 @@
     <header id="header">
         <div class="container">
             <h1 class="logo">Mike.Dev</h1>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+            </button>
             <nav>
-                <ul>
+                <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#pricing">Pricing</a></li>
@@ -30,10 +39,10 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h1 class="hero-title">Hi, i'm Simon Michael</h1>
-            <p class="hero-subtitle">Web Developer & web3 strategist</p>
-            <p class="hero-subtitle">Crafting innovative, user focused websites with cutting edge designs and seamless functionality. Transforming ideas into digital experiences that engage and inspire. </p>
-            <a href="#contact" class="cta-button" id="get-in-touch" aria-label="Contact John Doe">Get in Touch</a>
+            <h1 class="hero-title">Hi, I'm Simon Michael</h1>
+            <p class="hero-subtitle">Web Developer & Web3 Strategist</p>
+            <p class="hero-subtitle">Crafting innovative, user-focused websites with cutting-edge designs and seamless functionality. Transforming ideas into digital experiences that engage and inspire.</p>
+            <a href="#contact" class="cta-button" id="get-in-touch" aria-label="Contact Simon Michael">Get in Touch</a>
         </div>
     </section>
 
@@ -43,7 +52,7 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
                 <a href="https://example.com/ecommerce" class="project-card" target="_blank" aria-label="View E-Commerce Platform">
-                    <img src="images/project1.jpg" alt="E-Commerce Platform">
+                    <img src="images/project1.jpg"E-Commerce Platform">
                     <div class="project-info">
                         <h3>E-Commerce Platform</h3>
                         <p>A fully responsive e-commerce site built with modern technologies.</p>
@@ -102,7 +111,7 @@
             <h2 class="section-title">Trusted by Clients</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p>"mike delivered an amazing website for my business!"</p>
+                    <p>"Mike delivered an amazing website for my business!"</p>
                     <h3>Jane Smith</h3>
                     <span>CEO, TechCorp</span>
                 </div>
@@ -155,6 +164,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top" aria-label="Back to Top">↑</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

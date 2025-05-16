@@ -1,6 +1,11 @@
 // Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+// Optimize GSAP for Mobile Performance
+ScrollTrigger.config({
+    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" // Improve performance on mobile
+});
+
 // Animate Hero Section
 gsap.to(".hero-title", {
     opacity: 1,
@@ -82,6 +87,25 @@ gsap.to("#contact-form", {
     }
 });
 
+// Handle Navigation Toggle
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
+navToggle.addEventListener("click", () => {
+    navToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});
+
+// Close Navigation Menu When a Link is Clicked (Mobile)
+document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        if (navMenu.classList.contains("active")) {
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
+    });
+});
+
 // Handle Contact Form Submission
 document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -91,7 +115,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
     // Simulate form submission
     alert(`Thank you, ${name}! Your message has been sent.\nEmail: ${email}\nMessage: ${message}`);
-    
+
     // Reset form
     this.reset();
 });
@@ -99,7 +123,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 // Handle Pricing Plan Selection
 document.querySelectorAll(".select-plan").forEach(button => {
     button.addEventListener("click", function (e) {
-        e.preventDefault(); // Prevent default touch behavior
+        e.preventDefault();
         const plan = this.getAttribute("data-plan");
         this.textContent = "Processing...";
         this.disabled = true;
@@ -107,6 +131,21 @@ document.querySelectorAll(".select-plan").forEach(button => {
             alert(`You have selected the ${plan} plan! We'll get in touch to finalize your subscription.`);
             this.textContent = "Select Plan";
             this.disabled = false;
-        }, 2000); // Simulate a 2-second processing delay
+        }, 2000);
     });
+});
+
+// Back-to-Top Button
+const backToTopButton = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+});
+
+backToTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 });

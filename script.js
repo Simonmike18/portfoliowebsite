@@ -141,7 +141,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
                     formMessage.style.opacity = "1"; // Reset for next submission
                     
                     // Redirect to the Contact section
-                    window.location.href = "https://simonmike18.github.io/portfolio/";
+                    window.location.href = "https://simonmike18.github.io/portfoliowebsite/#contact";
                 }, 1000); // Match the fade-out transition duration
             }, 3000); // Show success message for 3 seconds
         } else {

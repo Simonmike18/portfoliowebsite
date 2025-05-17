@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Optimize GSAP for Mobile Performance
 ScrollTrigger.config({
-    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" // Improve performance on mobile
+    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
 });
 
 // Animate Hero Section
@@ -45,8 +45,8 @@ gsap.utils.toArray(".expertise-card").forEach((card, index) => {
     });
 });
 
-// Animate Project Cards
-gsap.utils.toArray(".project-card").forEach((card, index) => {
+// Animate Service Cards
+gsap.utils.toArray(".service-card").forEach((card, index) => {
     gsap.to(card, {
         opacity: 1,
         y: 0,
@@ -60,8 +60,8 @@ gsap.utils.toArray(".project-card").forEach((card, index) => {
     });
 });
 
-// Animate Pricing Cards
-gsap.utils.toArray(".pricing-card").forEach((card, index) => {
+// Animate Project Cards
+gsap.utils.toArray(".project-card").forEach((card, index) => {
     gsap.to(card, {
         opacity: 1,
         y: 0,
@@ -123,16 +123,14 @@ document.querySelectorAll(".nav-menu a").forEach(link => {
 
 // Handle Contact Form Submission
 document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     const formMessage = document.getElementById("form-message");
     const form = this;
 
-    // Show a "Sending..." message
     formMessage.style.display = "block";
     formMessage.textContent = "Sending your message...";
 
-    // Submit the form to Formspree using fetch
     fetch("https://formspree.io/f/xrbqjpqe", {
         method: "POST",
         body: new FormData(form),
@@ -142,25 +140,19 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     })
     .then(response => {
         if (response.ok) {
-            // On successful submission
-            form.reset(); // Reset the form
+            form.reset();
             formMessage.style.display = "block";
             formMessage.textContent = "Message Sent Successfully!";
-            
-            // Fade out the success message after 3 seconds
             setTimeout(() => {
                 formMessage.style.transition = "opacity 1s ease";
                 formMessage.style.opacity = "0";
                 setTimeout(() => {
                     formMessage.style.display = "none";
-                    formMessage.style.opacity = "1"; // Reset for next submission
-                    
-                    // Redirect to the Contact section
-                    window.location.href = "https://mikedev-jet.vercel.app/";
-                }, 1000); // Match the fade-out transition duration
-            }, 3000); // Show success message for 3 seconds
+                    formMessage.style.opacity = "1";
+                    window.location.href = "https://simonmike18.github.io/portfoliowebsite/#contact";
+                }, 1000);
+            }, 3000);
         } else {
-            // On error
             formMessage.style.display = "block";
             formMessage.textContent = "Error: Failed to send message. Please try again.";
         }
@@ -169,21 +161,6 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         console.error("Form submission error:", error);
         formMessage.style.display = "block";
         formMessage.textContent = "Error: Failed to send message. Please try again.";
-    });
-});
-
-// Handle Pricing Plan Selection
-document.querySelectorAll(".select-plan").forEach(button => {
-    button.addEventListener("click", function (e) {
-        e.preventDefault();
-        const plan = this.getAttribute("data-plan");
-        this.textContent = "Processing...";
-        this.disabled = true;
-        setTimeout(() => {
-            alert(`You have selected the ${plan} plan! We'll get in touch to finalize your subscription.`);
-            this.textContent = "Select Plan";
-            this.disabled = false;
-        }, 2000);
     });
 });
 

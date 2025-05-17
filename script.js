@@ -80,7 +80,7 @@ gsap.utils.toArray(".testimonial-card").forEach((card, index) => {
     gsap.to(card, {
         opacity: 1,
         x: 0,
-        duration: 0.8,
+    duration: 0.8,
         delay: index * 0.3,
         scrollTrigger: {
             trigger: card,

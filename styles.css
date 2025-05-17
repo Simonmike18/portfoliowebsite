@@ -357,18 +357,37 @@ nav ul.nav-menu li a:hover {
 }
 
 .project-info {
-    padding: 15px;
+    padding: 20px;
 }
 
 .project-info h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .project-info p {
     color: #a0a0a0;
     font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.project-info p strong {
+    color: #e0e0e0;
+}
+
+.project-info .project-cta {
+    display: inline-block;
+    color: #FF6F61;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.project-info .project-cta:hover {
+    color: #e65b50;
 }
 
 /* Testimonials Section */
